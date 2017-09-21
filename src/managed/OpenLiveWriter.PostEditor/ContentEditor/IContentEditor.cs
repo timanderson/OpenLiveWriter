@@ -38,11 +38,6 @@ namespace OpenLiveWriter.PostEditor
         /// the input caret into the document
         /// </summary>
         void SetFocus();
-        /// <summary>
-        /// This will be called by Mail when the canvas is not in focus
-        /// and will update the ribbon with appropriate button states and context
-        /// </summary>
-        void NotifyMailFocus(bool fIsPhotoAttachment);
 
         /// <summary>
         /// Provides a way for the hosting application to add html
@@ -130,12 +125,10 @@ namespace OpenLiveWriter.PostEditor
         /// <summary>
         /// Selling configuration
         /// </summary>
-        /// <param name="dllName">path to engine dll</param>
-        /// <param name="lcid">lcid of the language to spell</param>
-        /// <param name="mainLexFiles">path to lexicon files</param>
-        /// <param name="userLexFile"></param>
+        /// <param name="bcp47Code">BCP47 culture code of the language to spell</param>
         /// <param name="sobitOptions">spelling options</param>
-        void SetSpellingOptions(string dllName, ushort lcid, string[] mainLexFiles, string userLexFile, uint sobitOptions, bool useAutoCorrect);
+        /// <param name="useAutoCorrect">Auto correct spelling</param>
+        void SetSpellingOptions(string bcp47Code, uint sobitOptions, bool useAutoCorrect);
 
         /// <summary>
         /// Turns off spelling checking--for example, user selected "None" for dictionary
